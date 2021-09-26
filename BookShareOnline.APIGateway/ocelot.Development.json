@@ -28,6 +28,23 @@
       "FileCacheOptions": { "TtlSeconds": 30 }
     },
     {
+      "DownstreamPathTemplate": "/api/Cart/{userName}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44390
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Cart/{userName}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
       "DownstreamPathTemplate": "/api/Authenticate/Login",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
@@ -37,7 +54,8 @@
         }
       ],
       "UpstreamPathTemplate": "/api/Authenticate/Login",
-      "UpstreamHttpMethod": [ "POST" ]
+      "UpstreamHttpMethod": [ "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
     },
     {
       "DownstreamPathTemplate": "/api/Authenticate/Register",
@@ -49,7 +67,8 @@
         }
       ],
       "UpstreamPathTemplate": "/api/Authenticate/Register",
-      "UpstreamHttpMethod": [ "POST" ]
+      "UpstreamHttpMethod": [ "POST" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
     }
   ],
   "GlobalConfiguration": {
