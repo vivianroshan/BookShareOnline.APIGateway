@@ -25,7 +25,7 @@
       //  "PeriodTimespan": 1,
       //  "Limit": 1
       //},
-      "FileCacheOptions": { "TtlSeconds": 30 }
+      "FileCacheOptions": { "TtlSeconds": 10 }
     },
     {
       "DownstreamPathTemplate": "/api/Cart/{userName}",
@@ -42,7 +42,41 @@
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
       },
-      "FileCacheOptions": { "TtlSeconds": 30 }
+      "FileCacheOptions": { "TtlSeconds": 10 }
+    },
+    {
+      "DownstreamPathTemplate": "/api/books",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44390
+        }
+      ],
+      "UpstreamPathTemplate": "/api/books",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "FileCacheOptions": { "TtlSeconds": 10 }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Cart/{userName}/{bookid:int}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44390
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Cart/{userName}/{bookid:int}",
+      "UpstreamHttpMethod": [ "Post" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "FileCacheOptions": { "TtlSeconds": 10 }
     },
     {
       "DownstreamPathTemplate": "/api/Authenticate/Login",
@@ -55,7 +89,7 @@
       ],
       "UpstreamPathTemplate": "/api/Authenticate/Login",
       "UpstreamHttpMethod": [ "POST" ],
-      "FileCacheOptions": { "TtlSeconds": 30 }
+      "FileCacheOptions": { "TtlSeconds": 10 }
     },
     {
       "DownstreamPathTemplate": "/api/Authenticate/Register",
@@ -68,7 +102,7 @@
       ],
       "UpstreamPathTemplate": "/api/Authenticate/Register",
       "UpstreamHttpMethod": [ "POST" ],
-      "FileCacheOptions": { "TtlSeconds": 30 }
+      "FileCacheOptions": { "TtlSeconds": 10 }
     }
   ],
   "GlobalConfiguration": {
