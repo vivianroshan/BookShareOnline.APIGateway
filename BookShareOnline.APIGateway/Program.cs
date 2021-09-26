@@ -25,6 +25,10 @@ namespace BookShareOnline.APIGateway
                     webBuilder.ConfigureAppConfiguration(config =>
                     config.AddJsonFile($"ocelot.{env}.json"));
                 })
-                .ConfigureLogging(logging=>logging.AddConsole());
+                .ConfigureLogging(logging =>
+                {
+                    logging.AddConsole();
+
+                });
     }
 }

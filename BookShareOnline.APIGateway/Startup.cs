@@ -16,6 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ocelot.Cache.CacheManager;
 
 namespace BookShareOnline.APIGateway
 {
@@ -34,10 +35,12 @@ namespace BookShareOnline.APIGateway
             var secret = Configuration["JWT:Secret"];
             //var secret = "Thisismytestprivatekey";
             var key = Encoding.ASCII.GetBytes(secret);
-            services.AddAuthentication(option => {
+            services.AddAuthentication(option =>
+            {
                 option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(options => {
+            }).AddJwtBearer(options =>
+            {
                 options.RequireHttpsMetadata = false;
                 options.SaveToken = true;
                 options.TokenValidationParameters = new TokenValidationParameters
@@ -48,7 +51,7 @@ namespace BookShareOnline.APIGateway
                     ValidateAudience = false
                 };
             });
-            services.AddOcelot();
+            services.AddOcelot().AddCacheManager(settings => settings.WithDictionaryHandle());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -15,7 +15,8 @@
       "launchUrl": "api/weather",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "nativeDebugging": false
     },
     "BookShareOnline.APIGateway": {
       "commandName": "Project",
