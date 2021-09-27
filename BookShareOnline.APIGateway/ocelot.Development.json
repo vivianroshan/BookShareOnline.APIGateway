@@ -1,5 +1,6 @@
 {
   "Routes": [
+    //Weather Forecast
     {
       "DownstreamPathTemplate": "/weatherforecast",
       "DownstreamScheme": "https",
@@ -27,6 +28,7 @@
       //},
       "FileCacheOptions": { "TtlSeconds": 10 }
     },
+    //api/Cart/{userName}
     {
       "DownstreamPathTemplate": "/api/Cart/{userName}",
       "DownstreamScheme": "https",
@@ -41,9 +43,9 @@
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
-      },
-      "FileCacheOptions": { "TtlSeconds": 10 }
+      }
     },
+    //api/books
     {
       "DownstreamPathTemplate": "/api/books",
       "DownstreamScheme": "https",
@@ -58,9 +60,9 @@
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
-      },
-      "FileCacheOptions": { "TtlSeconds": 10 }
+      }
     },
+    //api/Cart/{userName}/{bookid:int}
     {
       "DownstreamPathTemplate": "/api/Cart/{userName}/{bookid:int}",
       "DownstreamScheme": "https",
@@ -75,9 +77,10 @@
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
-      },
-      "FileCacheOptions": { "TtlSeconds": 10 }
+      }
+
     },
+    //api/Authenticate/Login",
     {
       "DownstreamPathTemplate": "/api/Authenticate/Login",
       "DownstreamScheme": "https",
@@ -91,6 +94,7 @@
       "UpstreamHttpMethod": [ "POST" ],
       "FileCacheOptions": { "TtlSeconds": 10 }
     },
+    //api/Authenticate/Register",
     {
       "DownstreamPathTemplate": "/api/Authenticate/Register",
       "DownstreamScheme": "https",
@@ -103,6 +107,95 @@
       "UpstreamPathTemplate": "/api/Authenticate/Register",
       "UpstreamHttpMethod": [ "POST" ],
       "FileCacheOptions": { "TtlSeconds": 10 }
+    },
+    //api/Orders/{userName}/{bookid:int}/{status}
+    {
+      "DownstreamPathTemplate": "/api/Orders/{userName}/{bookid:int}/{status}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44390
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Orders/{userName}/{bookid:int}/{status}",
+      "UpstreamHttpMethod": [ "Post" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+
+    },
+    //api/Orders/{userName}
+    {
+      "DownstreamPathTemplate": "/api/Orders/{userName}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44390
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Orders/{userName}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+
+    },
+    //api/Orders/Cancel/{userName} --Put
+    {
+      "DownstreamPathTemplate": "/api/Orders/Cancel/{userName}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44390
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Orders/Cancel/{userName}",
+      "UpstreamHttpMethod": [ "Put" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+
+    },
+    //api/Cart/{userName}/{id} --Delete
+    {
+      "DownstreamPathTemplate": "/api/Cart/{userName}/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44390
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Cart/{userName}/{id}",
+      "UpstreamHttpMethod": [ "Delete" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+
+    },
+    //api/books/Savefile
+    {
+      "DownstreamPathTemplate": "/api/books/Savefile",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44390
+        }
+      ],
+      "UpstreamPathTemplate": "/api/books/Savefile",
+      "UpstreamHttpMethod": [ "Post" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     }
   ],
   "GlobalConfiguration": {
