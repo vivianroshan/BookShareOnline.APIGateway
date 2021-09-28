@@ -1,33 +1,5 @@
 {
   "Routes": [
-    //Weather Forecast
-    {
-      "DownstreamPathTemplate": "/weatherforecast",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 44390
-        }
-      ],
-      "UpstreamPathTemplate": "/api/weather",
-      "UpstreamHttpMethod": [ "Get" ],
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "Bearer",
-        "AllowedScopes": []
-      },
-      "RouteClaimsRequirement": {
-        "Role": "both"
-      },
-      //"RateLimitOptions": {
-      //  "ClientWhitelist": [],
-      //  "EnableRateLimiting": true,
-      //  "Period": "5s",
-      //  "PeriodTimespan": 1,
-      //  "Limit": 1
-      //},
-      "FileCacheOptions": { "TtlSeconds": 10 }
-    },
     //api/Cart/{userName}
     {
       "DownstreamPathTemplate": "/api/Cart/{userName}",
@@ -56,11 +28,24 @@
         }
       ],
       "UpstreamPathTemplate": "/api/books",
-      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "UpstreamHttpMethod": [ "Post" ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
       }
+    },
+    //api/books/home
+    {
+      "DownstreamPathTemplate": "/api/books/home",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44390
+        }
+      ],
+      "UpstreamPathTemplate": "/api/books/home",
+      "UpstreamHttpMethod": [ "Get" ]
     },
     //api/Cart/{userName}/{bookid:int}
     {
@@ -196,7 +181,53 @@
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
       }
+    },
+    ///api/ratings/{username}/{bookid:int}
+    {
+      "DownstreamPathTemplate": "/api/Ratings/{username}/{bookid:int}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44390
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Ratings/{username}/{bookid:int}",
+      "UpstreamHttpMethod": [ "Post" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+
     }
+    ////Weather Forecast
+    //{
+    //  "DownstreamPathTemplate": "/weatherforecast",
+    //  "DownstreamScheme": "https",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "localhost",
+    //      "Port": 44390
+    //    }
+    //  ],
+    //  "UpstreamPathTemplate": "/api/weather",
+    //  "UpstreamHttpMethod": [ "Get" ],
+    //  "AuthenticationOptions": {
+    //    "AuthenticationProviderKey": "Bearer",
+    //    "AllowedScopes": []
+    //  },
+    //  "RouteClaimsRequirement": {
+    //    "Role": "both"
+    //  },
+    //  "RateLimitOptions": {
+    //    "ClientWhitelist": [],
+    //    "EnableRateLimiting": true,
+    //    "Period": "5s",
+    //    "PeriodTimespan": 1,
+    //    "Limit": 1
+    //  },
+    //  "FileCacheOptions": { "TtlSeconds": 10 }
+    //},
   ],
   "GlobalConfiguration": {
     "BaseUrl": "https://localhost:44343/"
