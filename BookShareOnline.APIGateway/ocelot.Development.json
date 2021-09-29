@@ -32,6 +32,9 @@
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "sell": "yes"
       }
     },
     //api/books/home
@@ -62,8 +65,10 @@
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "buy": "yes"
       }
-
     },
     //api/Authenticate/Login",
     {
@@ -108,8 +113,10 @@
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "buy": "yes"
       }
-
     },
     //api/Orders/{userName}
     {
@@ -126,8 +133,10 @@
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "buy": "yes"
       }
-
     },
     //api/Orders/Cancel/{userName} --Put
     {
@@ -162,8 +171,10 @@
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "buy": "yes"
       }
-
     },
     //api/books/Savefile
     {
@@ -198,7 +209,6 @@
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
       }
-
     }
     ////Weather Forecast
     //{
